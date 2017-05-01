@@ -20,7 +20,7 @@ class FindService {
         this.dozerBeanMapper = dozerBeanMapper;
     }
 
-    List<FlightDTO> find(String from, String to) {
+    List<FlightDTO> findExistingFlights(String from, String to) {
         Iterable<Flight> flights = flightRepository.findAll();
 
         List<Flight> matchedFlights = StreamSupport.stream(flights.spliterator(), false)

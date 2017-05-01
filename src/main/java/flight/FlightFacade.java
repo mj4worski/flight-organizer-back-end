@@ -14,7 +14,7 @@ public class FlightFacade {
         this.findService = findService;
     }
 
-    List<FlightDTO> findFlights(String from, String to) {
-        return findService.find(from, to);
+    public List<FlightDTO> findFlights(String from, String to) {
+        return findService.findExistingFlights(from, to);
     }
 }
