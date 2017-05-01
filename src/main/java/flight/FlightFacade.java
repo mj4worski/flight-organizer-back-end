@@ -1,6 +1,7 @@
 package flight;
 
 import org.springframework.stereotype.Component;
+import rest.dto.FlightDTO;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class FlightFacade {
         this.findService = findService;
     }
 
-    List<Flight> findFlights(String from, String to) {
+    List<FlightDTO> findFlights(String from, String to) {
         return findService.find(from, to);
     }
 }

@@ -1,0 +1,3 @@
+INSERT INTO FLIGHT (DEPARTURE_FROM, ARRIVAL_TO) VALUES
+  ('Barcelona', 'Cracow');
+
