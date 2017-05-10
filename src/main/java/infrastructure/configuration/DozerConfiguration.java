@@ -1,4 +1,4 @@
-package configuration;
+package infrastructure.configuration;
 
 import flight.MappingFlight;
 import org.dozer.DozerBeanMapper;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = {"flight"})
-public class DozerConfiguration {
+class DozerConfiguration {
 
     @Bean
     public DozerBeanMapper dozerBeanMapper(MappingFlight mappingFlight) {

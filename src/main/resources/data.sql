@@ -1,3 +1,6 @@
 INSERT INTO FLIGHT (DEPARTURE_FROM, ARRIVAL_TO) VALUES
   ('Barcelona', 'Cracow');
 
+INSERT INTO CLIENT (LOGIN, PASSWORD, ROLE) VALUES
+  ('user', 'userPass', 'USER');
+

@@ -1,4 +1,4 @@
-package configuration;
+package infrastructure.configuration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,11 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {
-		org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class})
-@EnableJpaRepositories(basePackages = "flight")
-@EntityScan("flight")
-@ComponentScan(basePackages = {"rest" , "flight" ,"configuration"})
+@EnableJpaRepositories(basePackages = {"flight" , "client"} )
+@EntityScan(basePackages = {"flight", "client"})
+@ComponentScan(basePackages = {"rest" , "flight" ,"client" , "infrastructure"})
 public class FlightOrganizerApplication {
 
 	public static void main(String[] args) {

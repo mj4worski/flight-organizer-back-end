@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table
-class Flight implements Serializable{
+class Flight implements Serializable {
 
     @Id
     @Column
