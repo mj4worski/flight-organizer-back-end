@@ -36,9 +36,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2:1.4.195')
     compile("org.springframework.boot:spring-boot-devtools")
-    compile(group: 'net.sf.dozer', name: 'dozer', version: '5.4.0'){
-        exclude group: 'org.slf4j'
-    }
     compileOnly("org.projectlombok:lombok:1.16.16")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

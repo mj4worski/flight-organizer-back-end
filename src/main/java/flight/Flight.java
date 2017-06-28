@@ -23,7 +23,7 @@ class Flight implements Serializable {
     protected Flight() {
     }
 
-    public Flight(String departureFrom, String to) {
+    Flight(String departureFrom, String to) {
         this.departureFrom = departureFrom;
         this.arrivalTo = to;
     }
@@ -52,6 +52,10 @@ class Flight implements Serializable {
         this.arrivalTo = arrivalTo;
     }
 
+    FlightDto toDto() {
+        return new FlightDto(id, departureFrom, arrivalTo);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,4 +69,6 @@ class Flight implements Serializable {
     public int hashCode() {
         return Objects.hash(departureFrom, arrivalTo);
     }
+
+
 }

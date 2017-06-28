@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import rest.dto.FlightDTO;
+import flight.FlightDto;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ class FlightController {
     }
 
     @GetMapping(path = "/findFlights")
-    List<FlightDTO> findFlights(@RequestParam("departureFrom") String departureFrom,
+    List<FlightDto> findFlights(@RequestParam("departureFrom") String departureFrom,
                                 @RequestParam("arrivalTo") String arrivalTo) {
         Assert.notNull(arrivalTo, "arrivalTo can't be null");
         Assert.notNull(departureFrom, "departureFrom can't be null");

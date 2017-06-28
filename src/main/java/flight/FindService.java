@@ -1,8 +1,6 @@
 package flight;
 
-import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Service;
-import rest.dto.FlightDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,26 +11,22 @@ class FindService {
 
     final private FlightRepository flightRepository;
 
-    final private DozerBeanMapper dozerBeanMapper;
-
-    public FindService(FlightRepository flightRepository, DozerBeanMapper dozerBeanMapper) {
+    public FindService(FlightRepository flightRepository) {
         this.flightRepository = flightRepository;
-        this.dozerBeanMapper = dozerBeanMapper;
     }
 
-    List<FlightDTO> findExistingFlights(String from, String to) {
+    List<FlightDto> findExistingFlights(String from, String to) {
         Iterable<Flight> flights = flightRepository.findAll();
 
+        //TODO : Move to database WHERE clausule
         List<Flight> matchedFlights = StreamSupport.stream(flights.spliterator(), false)
                 .filter(flight -> flight.equals(new Flight(from, to)))
                 .collect(Collectors.toList());
 
-        List<FlightDTO> mappedFlightDTO = matchedFlights
+        return matchedFlights
                 .stream()
-                .map(flight -> dozerBeanMapper.map(flight, FlightDTO.class))
+                .map(flight -> flight.toDto())
                 .collect(Collectors.toList());
-
-        return mappedFlightDTO;
     }
 
     void saveFlight(Flight flight){

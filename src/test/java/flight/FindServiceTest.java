@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import rest.dto.FlightDTO;
 
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class FindServiceTest {
     @Test
     public void whenFlightDoesntExist_thenResultListIsEmpty() {
         //when
-        List<FlightDTO> flights = objectUnderTest.findExistingFlights("Cracow", "Warsow");
+        List<FlightDto> flights = objectUnderTest.findExistingFlights("Cracow", "Warsow");
         //then
         Assert.assertTrue(flights.isEmpty());
     }
@@ -36,7 +35,7 @@ public class FindServiceTest {
     @Test
     public void whenFlightIsMatched_thenResulstIsOne() {
         //when
-        List<FlightDTO> flights = objectUnderTest.findExistingFlights("Warsow", "Cracow");
+        List<FlightDto> flights = objectUnderTest.findExistingFlights("Warsow", "Cracow");
         //then
         Assert.assertEquals(1, flights.size());
     }
