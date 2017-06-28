@@ -21,10 +21,11 @@ class FlightController {
     }
 
     @GetMapping(path = "/findFlights")
-    List<FlightDTO> findFlights(@RequestParam("from") String from, @RequestParam("to") String to){
-        Assert.notNull(to, "To can't be null");
-        Assert.notNull(from, "From can't be null");
-        return flightFacade.findFlights(from, to);
+    List<FlightDTO> findFlights(@RequestParam("departureFrom") String departureFrom,
+                                @RequestParam("arrivalTo") String arrivalTo) {
+        Assert.notNull(arrivalTo, "arrivalTo can't be null");
+        Assert.notNull(departureFrom, "departureFrom can't be null");
+        return flightFacade.findFlights(departureFrom, arrivalTo);
     }
 
 }

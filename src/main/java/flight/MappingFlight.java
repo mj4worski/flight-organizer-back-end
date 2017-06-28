@@ -7,6 +7,7 @@ import rest.dto.FlightDTO;
 
 @Component
 public class MappingFlight extends BeanMappingBuilder {
+
     @Override
     protected void configure() {
         mapping(type(Flight.class).accessible(true), FlightDTO.class,
