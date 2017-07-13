@@ -42,8 +42,4 @@ class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler
 
         clearAuthenticationAttributes(request);
     }
-
-    public void setRequestCache(RequestCache requestCache) {
-        this.requestCache = requestCache;
-    }
 }
