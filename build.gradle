@@ -34,8 +34,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('com.h2database:h2:1.4.195')
+    compile 'mysql:mysql-connector-java'
     compile("org.springframework.boot:spring-boot-devtools")
     compileOnly("org.projectlombok:lombok:1.16.16")
+    testCompile('com.h2database:h2:1.4.195')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
