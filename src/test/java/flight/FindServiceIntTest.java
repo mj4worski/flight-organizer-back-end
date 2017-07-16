@@ -1,6 +1,6 @@
 package flight;
 
-import infrastructure.configuration.FlightOrganizerApplication;
+import infrastructure.FlightOrganizerApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,10 @@
+repositories {
+    mavenCentral()
+}
+
 buildscript {
     ext {
-        springBootVersion = '1.5.3.RELEASE'
+        springBootVersion = '1.5.4.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -18,10 +22,6 @@ apply plugin: 'idea'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-}
-
 idea {
     module {
         inheritOutputDirs = false
@@ -31,12 +31,12 @@ idea {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-security')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile "org.springframework.boot:spring-boot-devtools"
     compile 'mysql:mysql-connector-java'
-    compile("org.springframework.boot:spring-boot-devtools")
-    compileOnly("org.projectlombok:lombok:1.16.16")
-    testCompile('com.h2database:h2:1.4.195')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+    testCompile 'com.h2database:h2:1.4.195'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
