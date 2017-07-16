@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 class FindService {
@@ -15,21 +14,11 @@ class FindService {
         this.flightRepository = flightRepository;
     }
 
-    List<FlightDto> findExistingFlights(String from, String to) {
-        Iterable<Flight> flights = flightRepository.findAll();
-
-        //TODO : Move to database WHERE clausule
-        List<Flight> matchedFlights = StreamSupport.stream(flights.spliterator(), false)
-                .filter(flight -> flight.equals(new Flight(from, to)))
-                .collect(Collectors.toList());
-
+    List<FlightDto> findExistingFlights(String departureFrom, String arrivalTo) {
+        List<Flight> matchedFlights = flightRepository.findByDepartureFromAndArrivalTo(departureFrom, arrivalTo);
         return matchedFlights
                 .stream()
                 .map(flight -> flight.toDto())
                 .collect(Collectors.toList());
-    }
-
-    void saveFlight(Flight flight){
-        flightRepository.save(flight);
     }
 }

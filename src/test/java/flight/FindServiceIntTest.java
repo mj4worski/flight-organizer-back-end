@@ -2,27 +2,22 @@ package flight;
 
 import infrastructure.configuration.FlightOrganizerApplication;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {FlightOrganizerApplication.class})
-public class FindServiceTest {
+@Sql("/FindServiceIntTest.sql")
+public class FindServiceIntTest {
 
     @Autowired
     private FindService objectUnderTest;
-
-    @Before
-    public void init() {
-        objectUnderTest.saveFlight(new Flight("Warsow", "Cracow"));
-        objectUnderTest.saveFlight(new Flight("Warsow", "Barcelona"));
-    }
 
     @Test
     public void whenFlightDoesntExist_thenResultListIsEmpty() {

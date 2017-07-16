@@ -7,13 +7,13 @@ import java.util.List;
 @Component
 public class FlightFacade {
 
-    private FindService findService;
+    final private FindService findService;
 
     public FlightFacade(FindService findService) {
         this.findService = findService;
     }
 
-    public List<FlightDto> findFlights(String from, String to) {
-        return findService.findExistingFlights(from, to);
+    public List<FlightDto> findFlights(String departureFrom, String arrivalTo) {
+        return findService.findExistingFlights(departureFrom, arrivalTo);
     }
 }
