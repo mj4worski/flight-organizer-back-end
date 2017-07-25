@@ -11,7 +11,6 @@ import flight.FlightDto;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/public")
 class FlightController {
 
     final private FlightFacade flightFacade;

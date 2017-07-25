@@ -11,7 +11,7 @@ import place.PlaceFacade;
 import java.util.List;
 
 @RestController
-@RequestMapping("/place")
+@RequestMapping("/public")
 class PlaceController {
 
     final private PlaceFacade placeFacade;

@@ -31,8 +31,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .userDetailsService(this.userDetailsService);
+        auth.userDetailsService(this.userDetailsService);
     }
 
     @Override
@@ -45,8 +44,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/**").authenticated()
-                .antMatchers( "/console/**", "/login").permitAll()
+                .antMatchers( "/public/**", "/login").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .successHandler(authenticationSuccessHandler)
