@@ -1,10 +1,7 @@
 package rest;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import place.Place;
 import place.PlaceFacade;
 
@@ -25,8 +22,8 @@ class PlaceController {
         return placeFacade.findAllPlacesWithImagesId();
     }
 
-    @GetMapping(path ="/image" , produces = MediaType.APPLICATION_JSON_VALUE)
-    byte[]  getImage(@RequestParam("id") Long id){
+    @GetMapping(path ="/image/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    byte[]  getImage(@PathVariable(value = "id" , required = true) Long id){
         return placeFacade.getImageForPlace(id);
     }
 }
