@@ -22,7 +22,7 @@ class PlaceController {
         return placeFacade.findAllPlacesWithImagesId();
     }
 
-    @GetMapping(path ="/image/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path ="/image/{id}" , produces = MediaType.IMAGE_JPEG_VALUE)
     byte[]  getImage(@PathVariable(value = "id" , required = true) Long id){
         return placeFacade.getImageForPlace(id);
     }
